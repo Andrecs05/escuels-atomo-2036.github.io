@@ -6,6 +6,8 @@
 <title>Escuela de Artes Circenses Átomo — Medellín</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+  html { scroll-behavior: smooth; }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -433,11 +435,11 @@
 <nav>
   <div class="nav-logo">Átomo</div>
   <ul class="nav-links">
-    <li><a href="#">Nosotros</a></li>
-    <li><a href="#">Programas</a></li>
-    <li><a href="#">Egresados</a></li>
-    <li><a href="#">Inscripciones</a></li>
-    <li><a href="#">Contacto</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#programas">Programas</a></li>
+    <li><a href="#egresados">Egresados</a></li>
+    <li><a href="#inscripciones">Inscripciones</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
 </nav>
 
@@ -446,7 +448,7 @@
     <p class="hero-eyebrow">Medellín · Desde 2028</p>
     <h1 class="hero-title">Escuela de<br>Artes<br><em>Circenses</em></h1>
     <p class="hero-sub">Formación profesional en artes del circo para quienes creen que hacer reír es una vocación, no una casualidad.</p>
-    <a href="#" class="hero-cta">Ver programas 2036 →</a>
+    <a href="#programas" class="hero-cta">Ver programas 2036 →</a>
   </div>
   <div class="hero-right">
     <div class="hero-illustration">🎪</div>
@@ -473,7 +475,7 @@
   </div>
 </div>
 
-<section class="section">
+<section class="section" id="nosotros">
   <div class="about-grid">
     <div>
       <p class="section-tag">Nuestra historia</p>
@@ -493,7 +495,7 @@
   </div>
 </section>
 
-<section class="section" style="padding-top: 0;">
+<section class="section" id="programas" style="padding-top: 0;">
   <p class="section-tag">Programas</p>
   <h2 class="section-title">Lo que enseñamos</h2>
   <div class="programs-grid">
@@ -518,7 +520,7 @@
   </div>
 </section>
 
-<section class="testimonial-section">
+<section class="testimonial-section" id="egresados">
   <div style="max-width: 1100px; margin: 0 auto;">
     <p class="section-tag" style="text-align: center;">Egresados</p>
     <h2 class="section-title" style="text-align: center;">Lo que dice quien pasó por acá</h2>
@@ -535,12 +537,43 @@
   </div>
 </section>
 
+<section id="inscripciones" style="background: #141210; padding: 5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05);">
+  <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+    <p style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem;">Inscripciones 2036</p>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Semestre II abierto</h2>
+    <p style="font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.8; margin-bottom: 2rem;">Las inscripciones para el segundo semestre de 2036 están abiertas hasta el 30 de julio. Los programas disponibles son Malabarismo y técnica, Clown y commedia, y Dirección circense. No se requiere experiencia previa para los programas de inicio.</p>
+    <p style="font-size: 0.85rem; color: rgba(240,237,230,0.4);">Para inscribirse escribe a <span style="color: #EF9F27;">inscripciones@escuelaatomo.co</span> o visítanos en Carrera 70 #44B-12, Laureles, Medellín.</p>
+  </div>
+</section>
+
+<section id="contacto" style="padding: 5rem 3rem; border-top: 1px solid rgba(255,255,255,0.05);">
+  <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+    <p style="font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #1D9E75; margin-bottom: 1rem;">Contacto</p>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">Hablemos</h2>
+    <p style="font-size: 1rem; font-weight: 300; color: rgba(240,237,230,0.6); line-height: 1.8; margin-bottom: 2rem;">¿Tienes preguntas sobre los programas, alianzas o prensa? Estamos en Laureles, Medellín, de lunes a sábado de 8am a 6pm.</p>
+    <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+      <div>
+        <p style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.35); margin-bottom: 0.4rem;">Email</p>
+        <p style="color: #EF9F27; font-size: 0.95rem;">hola@escuelaatomo.co</p>
+      </div>
+      <div>
+        <p style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.35); margin-bottom: 0.4rem;">Teléfono</p>
+        <p style="color: #EF9F27; font-size: 0.95rem;">+57 604 320 7890</p>
+      </div>
+      <div>
+        <p style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,237,230,0.35); margin-bottom: 0.4rem;">Dirección</p>
+        <p style="color: #EF9F27; font-size: 0.95rem;">Cra 70 #44B-12, Laureles</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-logo">Átomo · Escuela de Artes Circenses</div>
   <ul class="footer-links">
-    <li><a href="#">Instagram</a></li>
-    <li><a href="#">YouTube</a></li>
-    <li><a href="#">Contacto</a></li>
+    <li><a href="#nosotros">Instagram</a></li>
+    <li><a href="#nosotros">YouTube</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
   <p class="footer-copy">© 2036 · Medellín, Colombia</p>
 </footer>
