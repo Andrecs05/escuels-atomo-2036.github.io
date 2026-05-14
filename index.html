@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuela de Artes Circenses Átomo — Medellín</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rojo: #D85A30;
+    --rojo-claro: #FAECE7;
+    --amarillo: #EF9F27;
+    --amarillo-claro: #FAEEDA;
+    --teal: #1D9E75;
+    --teal-claro: #E1F5EE;
+    --gris-oscuro: #2C2C2A;
+    --gris-medio: #5F5E5A;
+    --gris-claro: #F1EFE8;
+    --blanco: #ffffff;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #0e0d0b;
+    color: #f0ede6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    background: rgba(14,13,11,0.95);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--amarillo);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(240,237,230,0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amarillo); }
+
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 3rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 0.5rem;
+    color: #f0ede6;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--amarillo);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.55);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 380px;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--rojo);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    width: fit-content;
+    transition: background 0.2s;
+  }
+
+  .hero-cta:hover { background: #993C1D; }
+
+  .hero-right {
+    background: #1a1814;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-illustration {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12rem;
+    filter: grayscale(0.2);
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    background: var(--amarillo);
+    color: #412402;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .stat-item {
+    padding: 2.5rem 2rem;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--amarillo);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(240,237,230,0.45);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .section {
+    padding: 6rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.6);
+    line-height: 1.8;
+    max-width: 560px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-quote {
+    border-left: 3px solid var(--rojo);
+    padding-left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: rgba(240,237,230,0.75);
+    line-height: 1.7;
+    margin-top: 2rem;
+  }
+
+  .about-attr {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--rojo);
+    margin-top: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .founder-card {
+    background: #1a1814;
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 2.5rem;
+    border-radius: 4px;
+  }
+
+  .founder-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--rojo);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .founder-role {
+    font-size: 0.78rem;
+    color: var(--amarillo);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+
+  .founder-bio {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.55);
+    line-height: 1.75;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .program-card {
+    background: #1a1814;
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: border-color 0.2s;
+  }
+
+  .program-card:hover { border-color: rgba(239,159,39,0.3); }
+
+  .program-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .program-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .program-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(240,237,230,0.5);
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+  }
+
+  .program-duration {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+
+  .testimonial-section {
+    background: #141210;
+    padding: 6rem 3rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+  }
+
+  .testimonial-card {
+    background: #1a1814;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem;
+    border-radius: 4px;
+  }
+
+  .testimonial-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: rgba(240,237,230,0.7);
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.78rem;
+    color: rgba(240,237,230,0.35);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .testimonial-name {
+    color: var(--amarillo);
+    font-weight: 500;
+  }
+
+  footer {
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--amarillo);
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: rgba(240,237,230,0.3);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    color: rgba(240,237,230,0.35);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .footer-links a:hover { color: var(--amarillo); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Átomo</div>
+  <ul class="nav-links">
+    <li><a href="#">Nosotros</a></li>
+    <li><a href="#">Programas</a></li>
+    <li><a href="#">Egresados</a></li>
+    <li><a href="#">Inscripciones</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Medellín · Desde 2028</p>
+    <h1 class="hero-title">Escuela de<br>Artes<br><em>Circenses</em></h1>
+    <p class="hero-sub">Formación profesional en artes del circo para quienes creen que hacer reír es una vocación, no una casualidad.</p>
+    <a href="#" class="hero-cta">Ver programas 2036 →</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-illustration">🎪</div>
+    <div class="hero-badge">Admisiones abiertas · Semestre II</div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-number">320</span>
+    <span class="stat-label">Egresados</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">8</span>
+    <span class="stat-label">Disciplinas</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">14</span>
+    <span class="stat-label">Países alcanzados</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">2028</span>
+    <span class="stat-label">Año de fundación</span>
+  </div>
+</div>
+
+<section class="section">
+  <div class="about-grid">
+    <div>
+      <p class="section-tag">Nuestra historia</p>
+      <h2 class="section-title">Nació de una decisión tomada a tiempo</h2>
+      <p class="section-body">En 2026, Ismael Ríos se inscribió en la Escuela Nacional de Circo de Colombia con sus ahorros y una certeza: había perdido demasiado tiempo pidiendo permiso para ser lo que siempre había sido. Dos años después, abrió Átomo en el barrio Laureles. Lo que empezó en un local pequeño con cuatro estudiantes hoy es la escuela de artes circenses más reconocida del país.</p>
+      <blockquote class="about-quote">
+        "Un profesor me llamó payaso creyendo que me insultaba. Tardé años en entender que tenía razón."
+        <p class="about-attr">— Ismael Ríos, fundador</p>
+      </blockquote>
+    </div>
+    <div class="founder-card">
+      <div class="founder-avatar">IR</div>
+      <p class="founder-name">Ismael Ríos</p>
+      <p class="founder-role">Fundador · Director artístico</p>
+      <p class="founder-bio">Ex estudiante de Química Farmacéutica en la Universidad CES. Formado en la Escuela Nacional de Circo de Colombia (2026–2028). Conocido en escena como <strong>Átomo</strong>, figura clave en el rescate del Circo Medellín en 2031. Ha actuado en 14 países y entrenado a más de 300 artistas circenses.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top: 0;">
+  <p class="section-tag">Programas</p>
+  <h2 class="section-title">Lo que enseñamos</h2>
+  <div class="programs-grid">
+    <div class="program-card">
+      <span class="program-icon">🤹</span>
+      <h3 class="program-title">Malabarismo y técnica</h3>
+      <p class="program-desc">Fundamentos de malabarismo con objetos, control corporal y construcción de número. Enfoque en disciplina y lenguaje escénico.</p>
+      <p class="program-duration">12 meses · Presencial</p>
+    </div>
+    <div class="program-card">
+      <span class="program-icon">🎭</span>
+      <h3 class="program-title">Clown y commedia</h3>
+      <p class="program-desc">Técnicas de clown contemporáneo y commedia dell'arte. Construcción de personaje, improvisación y relación con el público.</p>
+      <p class="program-duration">8 meses · Presencial</p>
+    </div>
+    <div class="program-card">
+      <span class="program-icon">🎪</span>
+      <h3 class="program-title">Dirección circense</h3>
+      <p class="program-desc">Para artistas con experiencia. Producción, dirección de compañías, gestión de gira y creación de espectáculos completos.</p>
+      <p class="program-duration">18 meses · Híbrido</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <p class="section-tag" style="text-align: center;">Egresados</p>
+    <h2 class="section-title" style="text-align: center;">Lo que dice quien pasó por acá</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Llegué sin saber si tenía talento. Me fui sabiendo que el talento se construye. Átomo me enseñó a no pedir permiso para ocupar el escenario."</p>
+        <p class="testimonial-author"><span class="testimonial-name">Laura Quintero</span> · Egresada 2031 · Circo del Sol, Guadalajara</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Ismael sabe lo que es llegar tarde a algo que siempre fue tuyo. Por eso enseña diferente. No hay juicio acá, solo trabajo."</p>
+        <p class="testimonial-author"><span class="testimonial-name">Carlos Mejía</span> · Egresado 2033 · Compañía propia en Bogotá</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Átomo · Escuela de Artes Circenses</div>
+  <ul class="footer-links">
+    <li><a href="#">Instagram</a></li>
+    <li><a href="#">YouTube</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+  <p class="footer-copy">© 2036 · Medellín, Colombia</p>
+</footer>
+
+</body>
+</html>
